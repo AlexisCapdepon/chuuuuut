@@ -1,6 +1,6 @@
 # chuuuuut
 
-> My outstanding Nuxt.js project
+> Projet pour aider la gestion de leurs retards
 
 ## Build Setup
 
