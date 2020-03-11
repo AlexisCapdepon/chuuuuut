@@ -1,3 +1,22 @@
 # chuuuuut
-## V.1
-Projet pour aider les élèves
+
+> Projet pour aider la gestion de leurs retards
+
+## Build Setup
+
+``` bash
+# install dependencies
+$ yarn install
+
+# serve with hot reload at localhost:3000
+$ yarn dev
+
+# build for production and launch server
+$ yarn build
+$ yarn start
+
+# generate static project
+$ yarn generate
+```
+
+For detailed explanation on how things work, check out [Nuxt.js docs](https://nuxtjs.org).
