@@ -17,8 +17,8 @@
             <v-list-item-subtitle>Accès pour Ynov</v-list-item-subtitle>
           </v-list-item-content>
         </v-list-item>
-        <v-divider v-if="!isLogged"></v-divider>
-        <v-list-item v-if="!isLogged" class="pa-0">
+        <v-divider></v-divider>
+        <v-list-item class="pa-0">
           <v-list-item-content>
             <v-row>
               <v-col cols="12">
@@ -27,30 +27,31 @@
               <v-col cols="12">
                 <v-text-field label="Password" v-model="password" outlined dense hide-details/>
               </v-col>
-              <v-col cols="6" >
-                <v-btn small outlined>Inscription</v-btn>
+              <v-col cols="12" v-if="!isLogged">
+                <v-btn small outlined class="text-right">Connexion</v-btn>
               </v-col>
-              <v-col cols="6" >
-                <v-btn small outlined>connexion</v-btn>
+              <v-col cols="12" v-if="isLogged">
+                <v-btn small outlined class="text-right">Deconnexion</v-btn>
               </v-col>
             </v-row>
           </v-list-item-content>
         </v-list-item>
         <v-divider></v-divider>
-        <v-list-item v-if="!isLogged" class="px-0">
+        <v-list-item class="px-0">
           <v-list-item-content>
             <v-list-item-title><h1>Inscription</h1></v-list-item-title>
             <v-row>
               <v-col cols="9">
-                <v-text-field v-model="email" label="Email" outlined dense hide-details/>
+                <v-text-field v-model="newEmail" label="Email" outlined dense hide-details/>
               </v-col>
               <v-col cols="9">
-                <v-text-field label="Password" v-model="password" outlined dense hide-details/>
+                <v-text-field label="Password" v-model="newPassword" outlined dense hide-details/>
               </v-col>
               <v-col cols="9">
                 <v-select :items="filiereItem" label="Ma filiere" outlined/>
               </v-col>
               <v-col cols="9">
+                <p>Ma signature :</p>
                 <canvas ref="canvas" id="drawing-pad" class="white"></canvas>
               </v-col>
               <v-col cols="5">
@@ -73,9 +74,9 @@
         return {
           email: '',
           password: '',
+          newEmail: '',
+          newPassword: '',
           isLogged: false,
-          logInToggle: false,
-          singIn:true,
           canvas: null,
           context: null,
           isDrawing: false,
@@ -115,7 +116,6 @@
         }
       },
       mounted() {
-
         this.canvas = this.$refs.canvas;
         this.context = this.canvas.getContext('2d');
         this.canvas.addEventListener('mousedown',this.mouseDown);
@@ -169,6 +169,8 @@
         },
 
         resetCanvas(){
+          this.newEmail = '';
+          this.newPassword= '';
           this.canvas.width = this.$refs.canvas.width;
           this.points.length = 0
         },
