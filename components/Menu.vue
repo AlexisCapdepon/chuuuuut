@@ -17,11 +17,10 @@
             <v-list-item-subtitle>Accès pour Ynov</v-list-item-subtitle>
           </v-list-item-content>
         </v-list-item>
-        <v-divider></v-divider>
+        <v-divider/>
         <v-list-item class="pa-0">
           <v-list-item-content>
-            <form>
-              <v-list-item-title><h1>Connexion</h1></v-list-item-title>
+            <v-list-item-title><h1>Connexion</h1></v-list-item-title>
               <v-row>
                 <v-col cols="12">
                   <v-text-field v-model="email" label="Email" outlined dense hide-details/>
@@ -36,10 +35,9 @@
                   <v-btn small outlined class="text-right">Deconnexion</v-btn>
                 </v-col>
               </v-row>
-            </form>
             </v-list-item-content>
         </v-list-item>
-        <v-divider></v-divider>
+        <v-divider/>
         <v-list-item class="px-0">
           <v-list-item-content>
             <v-list-item-title><h1>Inscription</h1></v-list-item-title>
@@ -51,7 +49,7 @@
                 <v-text-field label="Password" v-model="newPassword" outlined dense hide-details/>
               </v-col>
               <v-col cols="9">
-                <v-select :items="filiereItem" label="Ma filiere" outlined/>
+                <v-select :items="filiereItem" label="Ma filière" outlined/>
               </v-col>
               <v-col cols="9">
                 <p>Ma signature :</p>
@@ -115,16 +113,16 @@
             'M1-Strategie-Communication',
             'M2-Strategie-Communication',
             'M1-Directeur-Artistique',
-            'M2-Directeur-Artistique',
+            'M2-Directeur-Artistique'
           ],
         }
       },
       mounted() {
         this.canvas = this.$refs.canvas;
         this.context = this.canvas.getContext('2d');
-        this.canvas.addEventListener('mousedown',this.mouseDown);
-        this.canvas.addEventListener('mousemove',this.mouseMove);
-        document.addEventListener('mouseup',this.mouseUp);
+        this.canvas.addEventListener('mousedown', this.mouseDown);
+        this.canvas.addEventListener('mousemove', this.mouseMove);
+        document.addEventListener('mouseup', this.mouseUp);
       },
       methods: {
         mouseDown(e) {
@@ -137,7 +135,7 @@
           this.startY = y;
           this.points.push({
             x: x,
-            y: y,
+            y: y
           });
         },
 
@@ -146,13 +144,13 @@
           let x = e.clientX - rect.left;
           let y = e.clientY - rect.top;
 
-          if (this.isDrawing){
+          if (this.isDrawing) {
             this.context.beginPath();
             this.context.moveTo(this.startX,this.startY);
             this.context.lineTo(x, y);
             this.context.lineWidth = 1;
             this.context.lineCap = 'round';
-            this.context.strokeStyle = "rgba(0,0,0,1)";
+            this.context.strokeStyle = 'rgba(0,0,0,1)';
             this.context.stroke();
 
             this.startX = x;
@@ -181,7 +179,7 @@
 
         saveImage(){
           let dataUrl = this.canvas.toDataURL();
-          console.log(dataUrl);
+          // console.log(dataUrl);
         }
       }
     }
