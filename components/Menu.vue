@@ -20,21 +20,24 @@
         <v-divider></v-divider>
         <v-list-item class="pa-0">
           <v-list-item-content>
-            <v-row>
-              <v-col cols="12">
-                <v-text-field v-model="email" label="Email" outlined dense hide-details/>
-              </v-col>
-              <v-col cols="12">
-                <v-text-field label="Password" v-model="password" outlined dense hide-details/>
-              </v-col>
-              <v-col cols="12" v-if="!isLogged">
-                <v-btn small outlined class="text-right">Connexion</v-btn>
-              </v-col>
-              <v-col cols="12" v-if="isLogged">
-                <v-btn small outlined class="text-right">Deconnexion</v-btn>
-              </v-col>
-            </v-row>
-          </v-list-item-content>
+            <form>
+              <v-list-item-title><h1>Connexion</h1></v-list-item-title>
+              <v-row>
+                <v-col cols="12">
+                  <v-text-field v-model="email" label="Email" outlined dense hide-details/>
+                </v-col>
+                <v-col cols="12">
+                  <v-text-field label="Password" v-model="password" outlined dense hide-details/>
+                </v-col>
+                <v-col cols="12" v-if="!isLogged">
+                  <v-btn small outlined class="text-right">Connexion</v-btn>
+                </v-col>
+                <v-col cols="12" v-if="isLogged">
+                  <v-btn small outlined class="text-right">Deconnexion</v-btn>
+                </v-col>
+              </v-row>
+            </form>
+            </v-list-item-content>
         </v-list-item>
         <v-divider></v-divider>
         <v-list-item class="px-0">
@@ -55,10 +58,11 @@
                 <canvas ref="canvas" id="drawing-pad" class="white"></canvas>
               </v-col>
               <v-col cols="5">
-                <v-btn small outlined @click="saveImage">S'inscrire</v-btn>
-              </v-col><v-col cols="5">
-              <v-btn small outlined @click="resetCanvas">Annuler</v-btn>
-            </v-col>
+                <v-btn small outlined @click="resetCanvas">Annuler</v-btn>
+              </v-col>
+              <v-col cols="5">
+                <v-btn small outlined @click="saveImage">Signup</v-btn>
+              </v-col>
             </v-row>
           </v-list-item-content>
         </v-list-item>
@@ -97,7 +101,7 @@
             'B2-Animation-3D-Jeux-Video',
             'B3-Animation-3D-Jeux-Video',
             'M1-Data-Scientist',
-            'M2Data-Scientist',
+            'M2-Data-Scientist',
             'M1-Expert-Cloud-Securite',
             'M2-Expert-Cloud-Securite',
             'M1-Expert-Dev-Web',
