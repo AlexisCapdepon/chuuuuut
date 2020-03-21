@@ -29,7 +29,7 @@
                   <v-text-field label="Password" v-model="password" outlined dense hide-details/>
                 </v-col>
                 <v-col cols="12" v-if="!isLogged">
-                  <v-btn small outlined class="text-right">Connexion</v-btn>
+                  <v-btn small outlined class="text-right" @click="signIn">Connexion</v-btn>
                 </v-col>
                 <v-col cols="12" v-if="isLogged">
                   <v-btn small outlined class="text-right">Deconnexion</v-btn>
@@ -180,6 +180,14 @@
         saveImage(){
           let dataUrl = this.canvas.toDataURL();
           console.log(dataUrl);
+        },
+
+        signIn(){
+          if (this.email === '' || this.password === '') {
+            alert('Veuillez rentrer votre adresse email et/ou mot de passe')
+          } else {
+            console.log("try to connect")
+          }
         }
       }
     }
