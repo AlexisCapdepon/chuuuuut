@@ -41,12 +41,15 @@
           <v-list-item v-if="!isLogged" class="px-0">
             <v-list-item-content>
               <v-list-item-title><h1>Inscription</h1></v-list-item-title>
-              <v-row dense>
+              <v-row>
                 <v-col cols="9">
                   <v-text-field v-model="email" label="Email" outlined dense hide-details/>
                 </v-col>
                 <v-col cols="9">
                   <v-text-field label="Password" v-model="password" outlined dense hide-details/>
+                </v-col>
+                <v-col cols="9">
+                  <v-select :items="filiereItem" label="Ma filiere" outlined/>
                 </v-col>
                 <v-col cols="9">
                   <canvas ref="canvas" id="drawing-pad" class="white"></canvas>
@@ -82,6 +85,36 @@
         startX: 0,
         startY: 0,
         points: [],
+        filiereItem: [
+          'B1-Informatique',
+          'B2-Informatique',
+          'B3-Informatique',
+          'B1-Audiovisuel',
+          'B2-Audiovisuel',
+          'B3-Audiovisuel',
+          'B1-Communication-Marketing',
+          'B2-Communication-Marketing',
+          'B3-Communication-Marketing',
+          'B1-Animation-3D-Jeux-Video',
+          'B2-Animation-3D-Jeux-Video',
+          'B3-Animation-3D-Jeux-Video',
+          'M1-Data-Scientist',
+          'M2Data-Scientist',
+          'M1-Expert-Cloud-Securite',
+          'M2-Expert-Cloud-Securite',
+          'M1-Expert-Dev-Web',
+          'M2-Expert-Dev-Web',
+          'M1-Expert-Dev-Iot',
+          'M2-Expert-Dev-Iot',
+          'M1-Entreprenariat-Start-Up',
+          'M2-Entreprenariat-Start-Up',
+          'M1-Marketing-Manager',
+          'M2-Marketing-Manager',
+          'M1-Strategie-Communication',
+          'M2-Strategie-Communication',
+          'M1-Directeur-Artistique',
+          'M2-Directeur-Artistique',
+        ],
       }
     },
     mounted() {
@@ -145,8 +178,7 @@
 
       saveImage(){
         let dataUrl = this.canvas.toDataURL();
-        let img = this.$refs.img;
-        img.src = dataUrl;
+        console.log(dataUrl);
       }
     }
   }
