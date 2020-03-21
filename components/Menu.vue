@@ -179,7 +179,7 @@
 
         saveImage(){
           let dataUrl = this.canvas.toDataURL();
-          // console.log(dataUrl);
+          console.log(dataUrl);
         }
       }
     }
